@@ -1,0 +1,56 @@
+/ Токен /
+========
+
+bbfa771f7f0994192317c03a5cb69669763872c2
+
+
+/ Аутентификация /
+=================
+
+ gh auth login // там можно через токен или браузер
+ gh auth status // статус авторизации
+
+/ Алиасы /
+=========
+
+gh alias list // показать все алиасы
+gh alias delete <alias> // удалить псевдоним
+gh alias set <alias> <expansion> // установить
+Нример:
+gh alias set pv 'pr view'
+gh alias set bugs 'issue list --label="bugs"'
+
+/ Сути на gist  /
+================
+Для начала нужно создать токен, или взять существующий и установит в нём разрешение на gists.
+Токены: (Settings->Developer Settings)
+
+github gist - это хранилище для быстрого сохранения и использования кода. Есть плагин для sublime.
+
+gh gist create --public <name> // создать суть на gist.github/
+gh gist edit {<gist ID> | <gist URL>} [flags] // редактировать
+gh gist list
+
+gh gist create --public hello.txt // файл обязательно должен что-то содержать
+gh gist edit 0baf2221e01fcb72926f42da7fbbfc12 // id из url к сущности
+
+/ Проблемы на gist  /
+====================
+
+gh issue list
+gh issue create --label bug // Создать проблему с этой меткой
+- ?Title:
+- ?Body: // содержание проблемы
+- ?What's next (
+    Submit, // отправить
+    Addmetadata,  // связать с Assigness(приемник проблемы), Labels(дополнительные labels) Project, Milestone(ветхи).
+    Cansel
+)
+Или там можно с флагами
+gh issue create --title "Issue title" --body "Issue body"
+
+gh issue view --web // статистика закрытых и открытых проблем
+gh issue close {<number> | <url>} // там у каждой проблемы есть свой номер
+gh issue reopen {<number> | <url>}
+gh issue status
+gh issue view {<number> | <url>}
